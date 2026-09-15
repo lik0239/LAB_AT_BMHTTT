@@ -6,7 +6,7 @@
 | **Mã số sinh viên** | 1150080014 |
 | **Lớp** | 11_ĐH_CNPM1 |
 | **Học phần** | An toàn và bảo mật hệ thống thông tin |
-| **Video thực hành** | Link YouTube ở đầu file báo cáo |
+| **Kênh YouTube (video thực hành)** | https://www.youtube.com/@chihan0403 |
 
 ## Mục tiêu
 
