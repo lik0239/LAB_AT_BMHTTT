@@ -1,4 +1,4 @@
-# LAB 10 – Remote DNS Cache Poisoning (mô phỏng Kaminsky) trên pfSense cô lập
+# LAB 9 – Remote DNS Cache Poisoning (mô phỏng Kaminsky) trên pfSense cô lập
 
 | Thông tin | |
 |---|---|
@@ -17,7 +17,7 @@
 
 ## Môi trường thực hành
 
-Kế thừa pfSense-LAB6 và DMZ-WEB của Lab 6/7, và mạng DNSLAB + máy APP-TEST/AUTH-DNS đã dựng ở **Lab 8** (bài Local DNS Attack) trên VMware Workstation 17.5.2. Tài liệu gốc viết cho VirtualBox và gọi tiền thân là "LAB 9"; trên máy sinh viên mạng đó chính là Lab 8, nên bài này giữ số **Lab 10** theo tài liệu/bộ tài nguyên và ánh xạ "LAB 9 nguồn" = môi trường Lab 8.
+Kế thừa pfSense-LAB6 và DMZ-WEB của Lab 6/7, và mạng DNSLAB + máy APP-TEST/AUTH-DNS đã dựng ở **Lab 8** (bài Local DNS Attack) trên VMware Workstation 17.5.2. Tài liệu gốc viết cho VirtualBox và gọi tiền thân là "LAB 9"; trên máy sinh viên mạng đó chính là Lab 8, nên bài này là **Lab 9** của sinh viên (lệch 1 số với tài liệu gốc). Bộ tài nguyên/script của học phần đặt tên theo "lab10" (LAB10_Resources, example.lab10.test, *_lab10.py) nên giữ nguyên các tên literal đó khi chạy lệnh.
 
 | Máy | Hệ điều hành | Địa chỉ IP | Ghi chú |
 |---|---|---|---|
@@ -45,13 +45,13 @@ Domain thử nghiệm: `example.lab10.test` (RFC 2606). Mọi script giới hạ
 | Hardening | Khôi phục BIND9, recursion ACL, source-port random | Kali bị REFUSED, cổng nguồn không còn 33333 |
 | Câu hỏi | 12 câu hỏi phân tích | Đã trả lời trong báo cáo |
 
-Báo cáo được viết với kết quả dự đoán trước khi thực hành thật trên VM (quy trình giống Lab 6/7/8). Làm xong mục nào mà kết quả thực tế khác dự đoán thì cập nhật lại báo cáo trước khi nộp chính thức. Hướng dẫn từng bước lệnh cụ thể nằm ở `D:\AnToanVaBaoMatThongTin\Lab10_ChuanBi_VMware.md` (không nằm trong repo).
+Báo cáo được viết với kết quả dự đoán trước khi thực hành thật trên VM (quy trình giống Lab 6/7/8). Làm xong mục nào mà kết quả thực tế khác dự đoán thì cập nhật lại báo cáo trước khi nộp chính thức. Hướng dẫn từng bước lệnh cụ thể nằm ở `D:\AnToanVaBaoMatThongTin\Lab9_ChuanBi_VMware.md` (không nằm trong repo).
 
 ## Cấu trúc thư mục
 
 ```
 LAB10/
-├── Lab10_11_ĐH_CNPM1_1150080014_HaChiHan.docx   # Báo cáo thực hành
+├── Lab9_11_ĐH_CNPM1_1150080014_HaChiHan.docx   # Báo cáo thực hành
 ├── LAB10_HuongDan.docx                          # Tài liệu hướng dẫn gốc của học phần
 └── README.md
 ```
@@ -60,4 +60,4 @@ LAB10/
 
 - Chỉ thực hiện trong môi trường ảo cô lập; không chạy script trên Wi-Fi, mạng trường, doanh nghiệp, Internet hay hệ thống của người khác.
 - Race relay UDP/5300 là giao diện chỉ dùng trong lab (biết trước TXID để tránh flood 65.536 gói) — không phản ánh độ khó/khả thi của tấn công Internet thực tế.
-- Sau buổi lab: dừng resolver mô phỏng, khởi động lại BIND9, disable/xóa rule UDP/5300, tắt interface ATTACKNET hoặc khôi phục snapshot `LAB10_START_FROM_LAB8`.
+- Sau buổi lab: dừng resolver mô phỏng, khởi động lại BIND9, disable/xóa rule UDP/5300, tắt interface ATTACKNET hoặc khôi phục snapshot `LAB9_START_FROM_LAB8`.
