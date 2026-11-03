@@ -1,0 +1,36 @@
+
+  Video thực hành Lab 9 – Học phần An toàn và bảo mật hệ thống thông tin.
+  Chủ đề: Remote DNS Cache Poisoning (mô phỏng tấn công Kaminsky) trong môi trường pfSense cô lập.
+
+  Nội dung:
+  - Tách ATTACKER (Kali) sang mạng riêng ATTACKNET 10.10.0.0/24 — attacker KHÔNG nghe trộm được Transaction ID / cổng
+  nguồn của resolver.
+  - Đầu độc cache ở cấp delegation (bản ghi NS + glue A) khiến resolver chuyển hướng cả zone sang DNS giả.
+  - Chứng minh hậu quả: VICTIM bị đưa tới trang web giả 10.10.0.200.
+  - Khôi phục BIND9 hiện đại + hardening: recursion ACL, source-port randomization, DNSSEC, firewall segmentation.
+
+  Mô hình: pfSense CE 2.7.2 | DNS-SERVER (BIND9) 10.9.0.10 | VICTIM 10.9.0.100 | AUTH-DNS 172.16.6.20 | DMZ-WEB
+  172.16.6.10 | Kali 10.10.0.200.
+  Domain thử nghiệm: example.lab10.test (RFC 2606). Toàn bộ thực hiện trong môi trường ảo cô lập, không ảnh hưởng mạng
+  thật.
+
+  Chương (sửa mốc thời gian sau khi dựng xong):
+  00:00 Giới thiệu & mô hình mạng
+  00:00 pfSense: interface DNSLAB & ATTACKNET
+  00:00 Chuyển Kali ra khỏi DNSLAB (chứng minh không sniff được)
+  00:00 Baseline: www.example.lab10.test → 172.16.6.10
+  00:00 Pha tấn công: resolver mô phỏng, evil DNS, kaminsky script
+  00:00 Kết quả: cache bị đầu độc → VICTIM vào trang giả
+  00:00 Khôi phục BIND9 & biện pháp phòng thủ
+
+  #antoanthongtin #DNS #cachepoisoning #Kaminsky #pfSense #BIND9 #cybersecurity
+
+  Tags (ô Tags)
+
+  an toàn thông tin, bảo mật hệ thống, DNS cache poisoning, Kaminsky attack, remote DNS poisoning, pfSense, BIND9,
+  DNSSEC, Kali Linux, network security, lab 9
+
+  Lưu ý: đề yêu cầu gắn link kênh https://www.youtube.com/@chihan0403 ở đầu báo cáo (không phải link video) — cái này
+  báo cáo đã có sẵn, không cần đổi.
+
+  Bạn muốn tôi để tiêu đề thuần "Lab 9" hay thêm (đề: LAB 10) cho khỏi lệch khi giảng viên đối chiếu?
