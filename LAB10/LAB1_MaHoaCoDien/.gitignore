@@ -1,0 +1,15 @@
+# Maven build output
+target/
+
+# IDE / editor
+.vs/
+nbproject/private/
+nbactions.xml
+.idea/
+*.iml
+
+# Compiled class files
+*.class
+
+# Office temp/lock
+~$*
